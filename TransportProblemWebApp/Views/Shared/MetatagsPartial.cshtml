@@ -1,0 +1,23 @@
+﻿<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+@if (ViewBag.Title != null)
+{
+    <title>@ViewBag.Title</title>
+}
+else{
+
+    <title>Transport problem</title>
+}
+
+@if (ViewBag.Description != null)
+{
+    <meta name="description" content="@ViewBag.Description">
+}
+else
+{
+    <meta name="description" content="Transport problem">
+}
+@if (ViewBag.Keywords != null)
+{
+    <meta name="keywords" content="@ViewBag.Keywords">
+}
