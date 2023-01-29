@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Extention\" />
-    <Folder Include="OptimisationAlgorithm\" />
   </ItemGroup>
 
 </Project>
