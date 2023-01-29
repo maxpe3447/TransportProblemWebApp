@@ -20,7 +20,6 @@
     <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Domain\" />
     <Folder Include="Model\" />
-    <Folder Include="Service\" />
   </ItemGroup>
 
   <ItemGroup>

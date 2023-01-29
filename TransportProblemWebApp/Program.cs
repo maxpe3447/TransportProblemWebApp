@@ -1,3 +1,5 @@
+using TransportProblemWebApp.Service;
+
 namespace TransportProblemWebApp
 {
     public class Program
@@ -6,6 +8,8 @@ namespace TransportProblemWebApp
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();
+
+            builder.Configuration.Bind("Project", new Config());
 
             var app = builder.Build();
             app.UseRouting();
