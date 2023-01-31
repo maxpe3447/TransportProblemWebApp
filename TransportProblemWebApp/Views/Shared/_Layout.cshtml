@@ -6,7 +6,7 @@
 -->
 <html>
 <head>
-	@await Html.PartialAsync("MetatagsPartial");
+	@await Html.PartialAsync("MetatagsPartial")
 	@await Html.PartialAsync("CssPartial")
 	
 </head>
@@ -14,7 +14,7 @@
 	<div id="page-wrapper">
 
 		<!-- Header -->
-		@await Html.PartialAsync("HeaderPartial");
+		@await Html.PartialAsync("HeaderPartial")
 
 		<!-- Features -->
 		
@@ -25,7 +25,7 @@
 				<div class="row aln-center">
 					<div class="col-8 col-12-medium">
 
-						@RenderBody();
+						@RenderBody()
 
 					</div>
 				</div>
@@ -33,10 +33,10 @@
 		</section>
 
 		<!-- Footer -->
-		@await Html.PartialAsync("FooterPartial");
+		@await Html.PartialAsync("FooterPartial")
 
 	</div>
 
-	@await Html.PartialAsync("ScriptsPartial");
+	@await Html.PartialAsync("ScriptsPartial")
 </body>
 </html>

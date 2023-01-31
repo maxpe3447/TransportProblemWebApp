@@ -18,6 +18,10 @@
   <ItemGroup>
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
+    <None Include="wwwroot\sass\images\button-big-active.svg" />
+    <None Include="wwwroot\sass\images\button-big-hover.svg" />
+    <None Include="wwwroot\sass\images\button-big.svg" />
+    <None Include="wwwroot\sass\images\mobileUI-site-nav-opener-bg.svg" />
   </ItemGroup>
 
   <ItemGroup>

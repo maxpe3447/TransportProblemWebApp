@@ -8,7 +8,14 @@
 					<h2>Links to Important Stuff</h2>
 					<div>
 						<div class="row">
-							<div class="col-3 col-12-small">
+                            <div class="col-3 col-12-small">
+                                <ul class="link-list last-child">
+                                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Головна сторінка</a></li>
+                                    <li><a asp-area="" asp-controller="Information" asp-action="Index" asp-route-id="">Довідникова інформація</a>  </li>
+                                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                                </ul>
+                            </div>
+							@*<div class="col-3 col-12-small">
 								<ul class="link-list last-child">
 									<li><a href="#">Neque amet dapibus</a></li>
 									<li><a href="#">Sed mattis quis rutrum</a></li>
@@ -31,15 +38,7 @@
 									<li><a href="#">Accumsan suspendisse</a></li>
 									<li><a href="#">Eu varius vitae magna</a></li>
 								</ul>
-							</div>
-							<div class="col-3 col-12-small">
-								<ul class="link-list last-child">
-									<li><a href="#">Neque amet dapibus</a></li>
-									<li><a href="#">Sed mattis quis rutrum</a></li>
-									<li><a href="#">Accumsan suspendisse</a></li>
-									<li><a href="#">Eu varius vitae magna</a></li>
-								</ul>
-							</div>
+							</div>*@
 						</div>
 					</div>
 				</section>
@@ -49,13 +48,12 @@
 
 				<!-- Blurb -->
 				<section>
-					<h2>An Informative Text Blurb</h2>
-					<p>
-						Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed. Suspendisse eu
-						varius nibh. Suspendisse vitae magna eget odio amet mollis. Duis neque nisi,
-						dapibus sed mattis quis, sed rutrum accumsan sed. Suspendisse eu varius nibh
-						lorem ipsum amet dolor sit amet lorem ipsum consequat gravida justo mollis.
-					</p>
+					<h2>Транспортна задача</h2>
+                    <p>
+                        Транспортна задача – це  задача лінійного програмування, яка ставиться як задача знаходження 
+                        оптимального плану перевезення вантажів із М пунктів відправлення в N пунктів призначення, 
+                        коли вартості перевезення із  пункта  відправлення i в пункт призначення j відомі
+                    </p>
 				</section>
 
 			</div>
@@ -64,5 +62,5 @@
 </section>
 <!-- Copyright -->
 <div id="copyright">
-	&copy; Untitled. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
+	&copy; @Config.ProjectName All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
 </div>

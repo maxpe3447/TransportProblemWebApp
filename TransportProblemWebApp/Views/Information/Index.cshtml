@@ -1,0 +1,25 @@
+﻿@model IQueryable<InformationField>
+@{
+    TextField textField = ViewBag.TextField;
+
+    ViewBag.Title = textField.Title;
+    ViewBag.Description = textField.MetaDescription;
+}
+
+<div>
+    @if (Model.Any())
+    {
+        <ul >
+            @foreach (var entity in Model)
+            {
+                <li>
+                    <a asp-area="" asp-controller="Information" asp-action="Index" asp-route-id="@entity.Id">
+                        <img src="~/images/@entity.TitleImagePath" alt="" class="aln-left"/>
+                    </a>
+                    <h4>@entity.Title</h4>
+                    <p>@entity.Subtitle</p>
+                </li>
+            }
+        </ul>
+    }
+</div>

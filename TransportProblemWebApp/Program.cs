@@ -49,7 +49,6 @@ namespace TransportProblemWebApp
             {
                 x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
             });
-
             var app = builder.Build();
             app.UseStaticFiles();
 

@@ -4,16 +4,16 @@
 			<div class="col-12">
 
 				<!-- Logo -->
-				<h1><a href="index.html" id="logo">Halcyonic</a></h1>
+				<h1><a href="/" id="logo">@Config.ProjectName</a></h1>
 
 				<!-- Nav -->
 				<nav id="nav">
-					<a href="index.html">Homepage</a>
-					<a href="threecolumn.html">Three Column</a>
-					<a href="twocolumn1.html">Two Column #1</a>
-					<a href="twocolumn2.html">Two Column #2</a>
-                    @*<a href="onecolumn.html">One Column</a>*@
-					<a style="background-image: -webkit-linear-gradient(top, #ed391b, #ce1a00);" href="/admin">
+					<a asp-area="" asp-controller="Home" asp-action="Index">Головна сторінка</a>
+					<a asp-area="" asp-controller="Information" asp-action="Index" asp-route-id="">Довідникова інформація</a>
+					<a asp-area="" asp-controller="Home" asp-action="About">About</a>
+                    @*<a href="twocolumn2.html">Two Column #2</a>
+                    <a href="onecolumn.html">One Column</a>*@
+					<a class="button-large" href="/admin">
 						LogIn
                     </a>
 				</nav>
@@ -27,14 +27,16 @@
 				<div class="col-6 col-12-medium">
 
 					<!-- Banner Copy -->
-					<p>We do something really useful, important, and unique. Learn all about it here ...</p>
-					<a href="#" class="button-large">Go on, click me!</a>
+					<p>Дізнайтесь більше про транспортні задачі у довіднику!</p>
+					<a asp-area="" asp-controller="Information" asp-action="Index" asp-route-id="" class="button-large">Go on, click me!</a>
 
 				</div>
 				<div class="col-6 col-12-medium imp-medium">
 
 					<!-- Banner Image -->
-					<a href="#" class="bordered-feature-image"><img src="images/banner.jpg" alt="" /></a>
+                    <a asp-area="" asp-controller="Information" asp-action="Index" asp-route-id="" class="bordered-feature-image">
+                        <img src="~/images/banner.jpg" alt="" width="225" height="220"/>
+                    </a>
 
 				</div>
 			</div>
