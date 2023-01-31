@@ -11,7 +11,7 @@ namespace TransportProblemWebApp.Domain.Repositories.InformationFieldRepository
         {
             _context = context;
         }
-        public IQueryable<InformationField> GetInformationField()
+        public IQueryable<InformationField> GetInformationFields()
         {
             return _context.InformationFields;
         }

@@ -4,7 +4,7 @@ namespace TransportProblemWebApp.Domain.Repositories.InformationFieldRepository
 {
 	public interface IInformationFieldRepository
 	{
-        IQueryable<InformationField> GetInformationField();
+        IQueryable<InformationField> GetInformationFields();
         InformationField GetInformationFieldById(Guid id);
         void SaveInformationField(InformationField entity);
         void DeleteInformationField(Guid id);

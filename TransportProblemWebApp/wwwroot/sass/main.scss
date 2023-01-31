@@ -757,89 +757,89 @@
 
 /* Small */
 
-	@include breakpoint('<=small') {
+@include breakpoint('<=small') {
+	/* Basic */
 
-		/* Basic */
-
-			body, input, textarea, select {
-				font-size: 13pt;
-				line-height: 1.4em;
-			}
-
-		/* Multi-use */
-
-			.link-list {
-				li {
-					padding: 0.75em 0 0.75em 0;
-				}
-			}
-
-			.quote-list {
-				li {
-					p {
-						margin-bottom: 0.5em;
-					}
-				}
-			}
-
-			.check-list {
-				li {
-					font-size: 1em;
-				}
-			}
-
-			.button-large {
-				width: 100%;
-			}
-
-		/* Banner */
-
-			#banner {
-				p {
-					font-size: 1.25em;
-					font-weight: 200;
-					line-height: 1.25em;
-					margin: 0 0 1em 0;
-				}
-			}
-
-		/* Content */
-
-			#content {
-				section {
-					padding: 30px 20px;
-				}
-
-				h2 {
-					font-size: 1.25em;
-				}
-
-				h3 {
-					font-size: 1em;
-				}
-
-				header {
-					margin: 0 0 1.25em 0;
-				}
-			}
-
-		/* Footer */
-
-			#footer {
-				.link-list {
-					margin: 0 0 10px 0 !important;
-				}
-			}
-
-		/* Copyright */
-
-			#copyright {
-				padding: 20px 30px;
-			}
-			.div-box{
-				padding: 15px 0;
-				label{
-					display: block;
-				}
-			}
+	body, input, textarea, select {
+		font-size: 13pt;
+		line-height: 1.4em;
 	}
+	/* Multi-use */
+
+	.link-list {
+		li {
+			padding: 0.75em 0 0.75em 0;
+		}
+	}
+
+	.quote-list {
+		li {
+			p {
+				margin-bottom: 0.5em;
+			}
+		}
+	}
+
+	.check-list {
+		li {
+			font-size: 1em;
+		}
+	}
+
+	.button-large {
+		width: 100%;
+	}
+	/* Banner */
+
+	#banner {
+		p {
+			font-size: 1.25em;
+			font-weight: 200;
+			line-height: 1.25em;
+			margin: 0 0 1em 0;
+		}
+	}
+	/* Content */
+
+	#content {
+		section {
+			padding: 30px 20px;
+		}
+
+		h2 {
+			font-size: 1.25em;
+		}
+
+		h3 {
+			font-size: 1em;
+		}
+
+		header {
+			margin: 0 0 1.25em 0;
+		}
+	}
+	/* Footer */
+
+	#footer {
+		.link-list {
+			margin: 0 0 10px 0 !important;
+		}
+	}
+	/* Copyright */
+
+	#copyright {
+		padding: 20px 30px;
+	}
+
+	.div-box {
+		padding: 15px 0;
+
+		label {
+			display: block;
+		}
+	}
+
+	.block {
+		display: block;
+	}
+}

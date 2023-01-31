@@ -1,5 +1,46 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IQueryable<InformationField>
 @{
+    ViewBag.Title = "Admin panel";
 }
+
+<div>
+    <h2>@ViewBag.Title</h2>
+    <div>
+        <h3>Inform fields:</h3>
+        <div>
+            <a asp-area="Admin" asp-controller="InformationItems" asp-action="Edit" asp-route-id="">Add new inform field</a>
+        </div>
+        @if (Model.Any())
+        {
+            <div>
+                @foreach (var item in Model)
+                {
+                    <div>
+                        <a asp-area="Admin" asp-controller="InformationItems" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        |
+                        <form style="display: inline-block;" id="form-@item.Id" asp-area="Admin" asp-controller="InformationItems" asp-action="Delete" method="post">
+                            <input type="hidden" name="id" value="@item.Id"/>
+                            <a href="#" onclick="document.getElementById('form-@item.Id').submit();'">Delete</a>
+                        </form>
+                        |
+                        <a asp-area="" asp-controller="Information" asp-action="Index" asp-route-id="@item.Id">
+                            @($"{item.Title}")
+                        </a>
+                        
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    <div class="div-box">
+        <h3>Edit pages</h3>
+        <a class="block" asp-area="Admin" asp-controller="TextFields" asp-action="Edit" asp-route-codeWord="PageIndex">Main</a>
+        <a class="block" asp-area="Admin" asp-controller="TextFields" asp-action="Edit" asp-route-codeWord="PageInformations">Information</a>
+        <a class="block" asp-area="Admin" asp-controller="TextFields" asp-action="Edit" asp-route-codeWord="PageAbout">About</a>
+    </div>
+    <div class="block">
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
+            <input type="submit" value="Logout"/>
+        </form>
+    </div>
+</div>

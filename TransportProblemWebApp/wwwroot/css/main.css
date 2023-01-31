@@ -1601,4 +1601,7 @@ section:last-child,
   .div-box label {
     display: block;
   }
+  .block {
+    display: block;
+  }
 }
