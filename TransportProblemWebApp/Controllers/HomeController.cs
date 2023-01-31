@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TransportProblemWebApp.Domain;
+using TransportProblemWebApp.Model;
 
 namespace TransportProblemWebApp.Controllers
 {
@@ -11,9 +12,11 @@ namespace TransportProblemWebApp.Controllers
         {
             _dataManager = dataManager;
         }
-		public IActionResult Index()
-		{
-			return View(_dataManager.TextField.GetTextFieldByCodeWord("PageIndex"));
+		public IActionResult Index(MatrixViewModel matrix = null)
+        {
+            ViewBag.TextField = _dataManager.TextField.GetTextFieldByCodeWord("PageIndex");
+
+            return View(matrix == null ? new MatrixViewModel() : matrix);
 		}
         public IActionResult About()
         {

@@ -14,9 +14,9 @@ namespace TransportProblemWebApp.Controllers
         }
         public IActionResult Index(Guid id)
         {
+            ViewBag.TextField = _dataManager.TextField.GetTextFieldByCodeWord("PageInformations");
             if (id != default)
             {
-                ViewBag.TextField = _dataManager.TextField.GetTextFieldByCodeWord("PageInformations");
                 return View("ShowInformations", _dataManager.InformationField.GetInformationFieldById(id));
             }
 

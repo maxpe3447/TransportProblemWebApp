@@ -6,16 +6,16 @@
     ViewBag.Description = textField.MetaDescription;
 }
 <div>
-    <h1>
-        @Model.Title
-    </h1>
     <h2>
-        @Model.Subtitle
+        @Model.Title
     </h2>
+    <h3>
+        @Model.Subtitle
+    </h3>
     <div>
         <img class="img-block" src="~/images/@Model.TitleImagePath"/>
     </div>
 </div>
 <div>
-    @Html.Raw(Model.Text);
+    @Html.Raw(Model.Text)
 </div>

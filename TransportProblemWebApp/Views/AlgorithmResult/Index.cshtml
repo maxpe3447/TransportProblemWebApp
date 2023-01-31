@@ -1,0 +1,45 @@
+﻿@model AlgorithmResultViewModel
+@{
+    ViewBag.Title = "Result";
+    ViewBag.Description = "Result for your system";
+}
+
+
+<p>
+    <h2>Результата опорного рішення: @Model.SupportPlanSum</h2>
+</p>
+<p>
+    <h3>Утворена матриця:</h3>
+</p>
+<table width="2" style="border-spacing: 10px; border-collapse: separate;">
+    @for (int i = 0, i_ = 0; i < Model.Row; i++, i_++)
+    {
+        <tr >
+            @for (int j = 0; j < Model.Coll; j++)
+            {
+                <td style="text-align: center;">
+                    <input type="number" name="Support[@(i * Model.Coll + j)]" value="@Model.SupportPlan[(i * Model.Coll + j)]" style="width: 50px; font-size: 25px; text-align: center"/>
+                </td>
+            }
+        </tr>
+    }
+</table>
+<p>
+    <h2>Результата ОПТИМАЛЬНОГО рішення: @Model.OptimalPlanSum</h2>
+</p>
+<p>
+    <h3>Утворена матриця:</h3>
+</p>
+<table width="2" style="border-spacing: 10px; border-collapse: separate;">
+    @for (int i = 0, i_ = 0; i < Model.Row; i++, i_++)
+    {
+        <tr>
+            @for (int j = 0; j < Model.Coll; j++)
+            {
+                <td style="text-align: center;">
+                    <input type="number" name="OptimalPlan[@(i * Model.Coll + j)]" value="@Model.OptimalPlan[(i * Model.Coll + j)]" style="width: 50px; font-size: 25px; text-align: center" />
+                </td>
+            }
+        </tr>
+    }
+</table>

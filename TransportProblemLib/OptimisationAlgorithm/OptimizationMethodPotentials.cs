@@ -11,10 +11,10 @@ namespace TransportProblemLib.OptimisationAlgorithm
         private readonly double[,] _matrix;
         private readonly double[,] _prices;
         private Point[] _allowed;
-        public OptimizationMethodPotentials(double[] reserves, double[] needs, double[,] matrix, double[,] prices)
+        public OptimizationMethodPotentials(double[] reserves, double[] needs, double[,] supportPlan, double[,] prices)
             : base(reserves, needs)
         {
-            _matrix = (double[,])matrix.Clone();
+            _matrix = (double[,])supportPlan.Clone();
             _prices = (double[,])prices.Clone();
         }
         public override double[,] GetPlan()

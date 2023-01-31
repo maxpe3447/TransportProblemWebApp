@@ -5,6 +5,7 @@ using TransportProblemWebApp.Domain;
 using TransportProblemWebApp.Domain.Repositories.InformationFieldRepository;
 using TransportProblemWebApp.Domain.Repositories.TextFieldRepository;
 using TransportProblemWebApp.Service;
+using TransportProblemWebApp.Service.MinElementAlgorithm;
 
 namespace TransportProblemWebApp
 {
@@ -20,6 +21,7 @@ namespace TransportProblemWebApp
             builder.Services.AddTransient<ITextFieldRepository, TextFieldRepository>();
             builder.Services.AddTransient<IInformationFieldRepository, InformationFieldRepository>();
             builder.Services.AddTransient<DataManager>();
+            builder.Services.AddTransient<ITransportAlgorithm, TransportAlgorithm>();
 
             builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(Config.ConnectionString));
 

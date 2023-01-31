@@ -1,8 +1,105 @@
-﻿@model TextField
+﻿@model MatrixViewModel
 @{
-    ViewBag.Title = Model.Title;
-    ViewBag.Description = Model.MetaDescription;
+    TextField textField = ViewBag.TextField;
+
+    ViewBag.Title = textField.Title;
+    ViewBag.Description = textField.MetaDescription;
 }
+
 <div>
-    @Html.Raw(Model.Text)
+    @Html.Raw(textField.Text)
+    <h3>Розмір: @Model.Row x @Model.Coll</h3>
+    <p></p>
+    <form method="post">
+        <input type="hidden" asp-for="Row" value="@Model.Row" />
+        <input type="hidden" asp-for="Coll" value="@Model.Coll" />
+        <p>
+            <table style="border-spacing: 10px; border-collapse: separate;">
+                <tr>
+                    <td>
+                        <input type="submit" asp-controller="Matrix" asp-action="AddRow" value="+Рядок"/>
+                    </td>
+                    <td>
+                        <input asp-controller="Matrix" asp-action="RemoveRow" type="submit" value="-Рядок"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input asp-controller="Matrix" asp-action="AddColl" type="submit" value="+Стовпчик"/>
+                    </td>
+                    <td>
+                        <input asp-controller="Matrix" asp-action="RemoveColl" type="submit" value="-Стовпчик"/>
+                    </td>
+                </tr>
+            </table>
+        </p>
+        <table width="2" style="border-spacing: 10px; border-collapse: separate;">
+            <tr>
+                <td><div style="width: 50px"></div></td>
+                <td colspan="@Model.Coll" style="text-align: center">
+                    <lable>Матриця тарифів</lable>
+                </td>
+                <td>Запаси</td>
+            </tr>
+
+            @for(int i = 0, i_ = 0; i < Model.Row; i++, i_++){
+                <tr >
+                    @for (int j = 0; j < Model.Coll; j++)
+                    {
+                        @if (j == 0)
+                        {
+                            <td><div style="width: 50px"></div></td>
+                        }
+                        <td style="text-align: center;">
+                            <input type="number" asp-for="Array" name="Array[@(i*Model.Coll+j)]" value="@Model.Array[(i * Model.Coll + j)]" style="width: 50px; font-size: 25px; text-align: center"/>
+                        </td>
+                        @if (j == Model.Coll - 1)
+                        { 
+                            <td style="text-align: center;">
+                                <input type="number" asp-for="Reserves" name="Reserves[@i]" value="@Model.Reserves[i]" style="width: 50px; font-size: 25px; text-align: center; background-color:ghostwhite" />
+                            </td>
+                        }
+                    }
+                </tr>
+            }
+            <tr>
+                <td>
+                    <label>Потреби</label>
+                </td>
+                @for (int i = 0; i < Model.Coll; i++)
+                {
+                    <td style="text-align: center;">
+                        <input type="number" asp-for="Needs" name="Needs[@i]" value="@Model.Needs[i]" style="width: 50px; font-size: 25px; text-align: center; background-color: beige" />
+                    </td>
+                }
+            </tr>
+            
+        </table>
+        <table>
+            <tr>
+                <td>
+                    <label asp-for="SupportPlanType"></label>
+                    <span asp-validation-for="SupportPlanType"></span>
+                    <select asp-for="SupportPlanType">
+                        <option value="@AlgorithmType.MINIMAL_ELEMENT">Метод мінімального елементу</option>
+                        <option value="@AlgorithmType.NORD_WEST">Метод північно західного кута</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="OptimisationType"></label>
+                    <span asp-validation-for="OptimisationType"></span>
+                    <select asp-for="OptimisationType">
+                        <option value="@AlgorithmType.POTENTIAL">Метод потенціалів</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="button-large" asp-controller="Matrix" type="submit" value="Надіслати" asp-action="GetMatrix"/>
+                </td>
+            </tr>
+        </table>
+    </form>
 </div>
