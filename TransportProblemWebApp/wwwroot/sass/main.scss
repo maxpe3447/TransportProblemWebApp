@@ -85,12 +85,12 @@
 		padding: 0;
 	}
 
-	input, select, textarea {
+	/*input, select, textarea {
 		-moz-appearance: none;
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
-	}
+	}*/
 
 /* Basic */
 
@@ -836,5 +836,10 @@
 			#copyright {
 				padding: 20px 30px;
 			}
-
+			.div-box{
+				padding: 15px 0;
+				label{
+					display: block;
+				}
+			}
 	}

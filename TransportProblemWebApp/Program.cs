@@ -13,7 +13,6 @@ namespace TransportProblemWebApp
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddControllersWithViews();
 
             builder.Configuration.Bind("Project", new Config());
             builder.Configuration.Bind("AdminArea", new AdminAreaConfig());
@@ -42,8 +41,14 @@ namespace TransportProblemWebApp
                 options.AccessDeniedPath = "/account/accessdenied";
                 options.SlidingExpiration = true;
             });
-
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddAuthorization(x =>
+            {
+                x.AddPolicy("AdminArea", policy => policy.RequireRole("admin"));
+            });
+            builder.Services.AddControllersWithViews(x =>
+            {
+                x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
+            });
 
             var app = builder.Build();
             app.UseStaticFiles();
@@ -56,7 +61,8 @@ namespace TransportProblemWebApp
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("defaulte", "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute("admin", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
             
 
