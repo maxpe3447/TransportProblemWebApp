@@ -11,6 +11,7 @@ namespace TransportProblemLib.Enums
         //SupportPlan
         MINIMAL_ELEMENT,
         NORD_WEST,
+        VOGEL_APPROXIMATION,
 
         //Optimisation
         POTENTIAL

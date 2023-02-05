@@ -22,7 +22,8 @@ namespace TransportProblemWebApp.Service.MinElementAlgorithm
                 model.SupportPlanType switch
             {
                 AlgorithmType.MINIMAL_ELEMENT => new MinElemet(reserves, needs, prices),
-                AlgorithmType.NORD_WEST => new NordWest(reserves, needs)
+                AlgorithmType.NORD_WEST => new NordWest(reserves, needs),
+                AlgorithmType.VOGEL_APPROXIMATION => new VogelApproximation(reserves, needs, prices)
             };
 
             var supportPlan = algorithm.GetPlan();
