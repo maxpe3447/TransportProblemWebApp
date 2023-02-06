@@ -12,6 +12,7 @@ namespace TransportProblemLib.Enums
         MINIMAL_ELEMENT,
         NORD_WEST,
         VOGEL_APPROXIMATION,
+        DOUBLE_PREFERENCE,
 
         //Optimisation
         POTENTIAL

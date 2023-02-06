@@ -23,7 +23,8 @@ namespace TransportProblemWebApp.Service.MinElementAlgorithm
             {
                 AlgorithmType.MINIMAL_ELEMENT => new MinElemet(reserves, needs, prices),
                 AlgorithmType.NORD_WEST => new NordWest(reserves, needs),
-                AlgorithmType.VOGEL_APPROXIMATION => new VogelApproximation(reserves, needs, prices)
+                AlgorithmType.VOGEL_APPROXIMATION => new VogelApproximation(reserves, needs, prices),
+                AlgorithmType.DOUBLE_PREFERENCE => new DoublePreference(reserves, needs, prices)
             };
 
             var supportPlan = algorithm.GetPlan();
