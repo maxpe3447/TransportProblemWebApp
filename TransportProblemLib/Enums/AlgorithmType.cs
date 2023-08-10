@@ -13,8 +13,10 @@ namespace TransportProblemLib.Enums
         NORD_WEST,
         VOGEL_APPROXIMATION,
         DOUBLE_PREFERENCE,
+        GENETIC,
 
         //Optimisation
-        POTENTIAL
+        POTENTIAL,
+        Floyd_Warshall
     }
 }

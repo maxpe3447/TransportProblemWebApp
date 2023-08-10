@@ -30,10 +30,11 @@ namespace TransportProblemWebApp.Service.MinElementAlgorithm
             var supportPlan = algorithm.GetPlan();
             var supportSum = algorithm.GetSum(supportPlan, prices);
 
-            TransportProblemLib.Abstruct.TransportAlgorithm optimAlgorithm=
+            TransportProblemLib.Abstruct.TransportAlgorithm optimAlgorithm =
                 model.OptimisationType switch
                 {
-                    AlgorithmType.POTENTIAL => new OptimizationMethodPotentials(reserves, needs, supportPlan, prices)
+                    AlgorithmType.POTENTIAL => new OptimizationMethodPotentials(reserves, needs, supportPlan, prices),
+                    AlgorithmType.Floyd_Warshall => new FloydWarshall(reserves, needs, supportPlan)
                 };
 
             var optimalPlan = optimAlgorithm.GetPlan();
