@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TransportProblemLib.Abstruct;
+﻿using TransportProblemLib.Abstruct;
 using TransportProblemLib.Extention;
 
 namespace TransportProblemLib.SupportPlanAlgorithm
 {
-    class GeneticAlgorithm : TransportAlgorithm
+    public class GeneticAlgorithm : TransportAlgorithm
     {
         private readonly double[,] _cost;
         private readonly int _populationSize;
         private readonly int _maxIter;
         private readonly double _mutationRate;
 
-        public GeneticAlgorithm(double[] reserves, double[] needs, double[,] cost, int populationSize, int maxIter, double mutationRate)
+        public GeneticAlgorithm(double[] reserves, double[] needs, double[,] cost, 
+            int populationSize = 100, int maxIter = 1000, double mutationRate = 0.01)
             : base(reserves, needs)
         {
             _cost = cost;
