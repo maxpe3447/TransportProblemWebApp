@@ -13,6 +13,7 @@
 ### Patterns
 - MVC
 - Dependency Injection
+- Factory
 
 ## Tests
 - MSTest Framevork
