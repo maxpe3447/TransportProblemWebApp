@@ -6,17 +6,17 @@ using TransportProblemWebApp.Service;
 
 namespace TransportProblemWebApp.Domain
 {
-	public class AppDbContext :IdentityDbContext
+    public class AppDbContext :IdentityDbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
             :base(options) { }
-		public DbSet<TextField> TextFields { get; set; }
+        public DbSet<TextField> TextFields { get; set; }
         public DbSet<InformationField> InformationFields { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-			builder.Entity<IdentityRole>().HasData(new IdentityRole
+            builder.Entity<IdentityRole>().HasData(new IdentityRole
             {
                 Id = "e217e9d7-ec23-4868-acc9-81737b460ee7",
                 Name = AdminAreaConfig.Name,
@@ -71,6 +71,6 @@ namespace TransportProblemWebApp.Domain
                 //MetaDescription = "..."
 
             });
-		}
+        }
     }
 }
