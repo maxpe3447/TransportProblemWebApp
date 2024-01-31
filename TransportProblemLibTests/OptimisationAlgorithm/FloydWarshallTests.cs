@@ -1,13 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TransportProblemLib.OptimisationAlgorithm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TransportProblemLib.SupportPlanAlgorithm;
 using TransportProblemLib.Abstruct;
 using TransportProblemLib.Extention;
+using TransportProblemLib.SupportPlanAlgorithm;
+using TransportProblemLibTests;
 
 namespace TransportProblemLib.OptimisationAlgorithm.Tests
 {
@@ -19,22 +14,13 @@ namespace TransportProblemLib.OptimisationAlgorithm.Tests
         [TestMethod()]
         public void GetPlanTest()
         {
-            double[,] prices =
-            {
-                { 4,3,4,11,9 },
-                { 3,4,7,15,8 },
-                { 7,4,2,8,15}
-            };
-
-            double[] reserves = { 40, 30, 10 };
-            double[] needs = { 20, 21, 7, 24, 8 };
             double expected = 464;
-            TransportAlgorithm supportAlg = new NordWest(reserves, needs);
+            TransportAlgorithm supportAlg = new NordWest(SeedData.Reserves, SeedData.Needs);
             var sPlan = supportAlg.GetPlan();
-            TransportAlgorithm alg = new FloydWarshall(reserves, needs, sPlan);
+            TransportAlgorithm alg = new FloydWarshall(SeedData.Reserves, SeedData.Needs, sPlan);
             var plan = alg.GetPlan();
 
-            double actual = alg.GetSum(plan, prices);
+            double actual = alg.GetSum(plan, SeedData.Prices);
             Assert.AreEqual(expected, actual);
         }
 

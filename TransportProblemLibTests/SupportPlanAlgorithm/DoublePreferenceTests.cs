@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using TransportProblemLib.Abstruct;
 using TransportProblemLib.Extention;
+using TransportProblemLibTests;
 
 namespace TransportProblemLib.SupportPlanAlgorithm.Tests
 {
@@ -11,18 +12,8 @@ namespace TransportProblemLib.SupportPlanAlgorithm.Tests
         [TestMethod()]
         public void GetPlanTest()
         {
-            double[,] prices =
-            {
-                { 4,3,4,11,9 },
-                { 3,4,7,15,8 },
-                { 7,4,2,8,15}
-            };
-
-            double[] reserves = { 40, 30, 10 };
-            double[] needs = {20, 21, 7, 24, 8 };
-            //double expected = 464;
-
-            TransportAlgorithm alg = new DoublePreference(reserves, needs, prices);
+            int expected = 464;
+            TransportAlgorithm alg = new DoublePreference(SeedData.Reserves, SeedData.Needs, SeedData.Prices);
             var plan = alg.GetPlan();
 
             for (int i = 0; i < plan.GetLength(0); i++)
@@ -34,8 +25,8 @@ namespace TransportProblemLib.SupportPlanAlgorithm.Tests
                 Debug.WriteLine("");
             }
 
-            double actual = alg.GetSum(plan, prices);
-            Assert.AreEqual(actual, actual);
+            double actual = alg.GetSum(plan, SeedData.Prices);
+            Assert.AreEqual(actual, expected);
             
         }
     }

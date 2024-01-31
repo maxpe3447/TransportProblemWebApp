@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TransportProblemLib.Extention;
+using TransportProblemLibTests;
 
 namespace TransportProblemLib.SupportPlanAlgorithm.Tests
 {
@@ -15,30 +16,11 @@ namespace TransportProblemLib.SupportPlanAlgorithm.Tests
         [TestMethod()]
         public void GetPlanTest()
         {
-            //double[] needs = { 30, 20, 70, 30, 60 };
-            //double[] reserves = { 50, 60, 50, 50 };
-            //double[,] prices = {
-            //    {16, 16, 13, 22, 17},
-            //    {14, 14, 13, 19, 15},
-            //    {19, 19, 20, 23, 50},
-            //    {50, 12, 50, 15, 11}
-            //};
-            //double expected = 3100;
-
-            double[,] prices =
-             {
-                { 4,3,4,11,9 },
-                { 3,4,7,15,8 },
-                { 7,4,2,8,15}
-            };
-
-            double[] reserves = { 40, 30, 10 };
-            double[] needs = { 20, 21, 7, 24, 8 };
             double expected = 476;
 
-            VogelApproximation alg = new VogelApproximation(reserves, needs, prices);
+            VogelApproximation alg = new VogelApproximation(SeedData.Reserves, SeedData.Needs, SeedData.Prices);
             var plan = alg.GetPlan();
-            double actual = alg.GetSum(plan, prices);
+            double actual = alg.GetSum(plan, SeedData.Prices);
             Assert.AreEqual(expected, actual, $"actual: {actual}, but expected: {expected}");
             //Assert.Fail();
         }
